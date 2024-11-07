@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
   <head>
-    <title>Contact</title>
+    <title id="INDEXID7"></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +12,9 @@
     <link rel="stylesheet" type="text/css" href="css/icon.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/style-3.css">  
+    <link rel="stylesheet" href="css/style-3.css"> 
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>  
   </head>
 <body>
     <section class="section">
@@ -57,7 +59,7 @@
                 </div>
               </div>
               <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 wow fadeInRight" data-wow-delay=".2s">
-                <h5 class="footer-modern-title">Prendre contact</h5>
+                <h5 class="footer-modern-title" id="INDEXID61"></h5>
                 <ul class="contacts-creative">
                   <li>
                     <div class="unit unit-spacing-sm flex-column flex-md-row">
@@ -81,12 +83,12 @@
               </div>
               <div class="col-lg-4 wow fadeInRight" data-wow-delay=".2s">
                 <h4 class="footer-classic-title">Newsletter</h4>
-                <p>Subscribe to our newsletter to receive weekly news, updates, special offers, and exclusive discounts.</p>
+                <p id="INDEXID68"></p>
                 <!-- RD Mailform-->
                 <form class="rd-form rd-mailform rd-form-inline rd-form-inline-2" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
                   <div class="form-wrap">
                     <input class="form-input" id="subscribe-form-2-email" type="email" name="email" data-constraints="@Email @Required"/>
-                    <label class="form-label" for="subscribe-form-2-email">Enter your e-mail</label>
+                    <label class="form-label" for="subscribe-form-2-email" id="accountId"></label>
                   </div>
                   <div class="form-button">
                     <button class="button button-icon-2 button-zakaria button-secondary" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-circle" viewBox="0 0 16 16">
@@ -117,6 +119,7 @@
     <a href="#" id="ui-to-top" class="ui-to-top icon fas fa-arrow-up active"></a>
     <div class="snackbars" id="form-output-global"></div>
     <script src="js/core.min.js"></script>
-    <script src="js/script.js"></script>   
+    <script src="js/script.js"></script>  
+    <script src="translate/translate.js"></script> 
 </body>
 </html>

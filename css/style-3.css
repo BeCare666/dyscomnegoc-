@@ -19733,3 +19733,43 @@ html#ecwid_html body#ecwid_body .ec-size.ec-size--m .ec-store .details-gallery__
 section {
 	/*background-color: #383d3f !important;*/
 }
+#language-select img {
+	width: 10vh;
+	height: 10vh;
+	}
+
+    /* Icône de globe */
+    .globe-icon {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* Styles pour le modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 300px;
+      text-align: center;
+    }
+    
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+    }

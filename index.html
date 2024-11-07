@@ -13,7 +13,9 @@
     <link rel="stylesheet" type="text/css" href="css/icon.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/style-3.css">  
+    <link rel="stylesheet" href="css/style-3.css">
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>  
   </head>
   <body>
     <div class="preloader">
@@ -48,9 +50,9 @@
               <div class="rd-navbar-aside">
                 <div class="rd-navbar-collapse">
                   <ul class="contacts-classic">
-                    <li><span class="contacts-classic-title">Call us:</span> <a href="tel:tel:+22965306767">+229 65 30 67 67</a>
+                    <li><span class="contacts-classic-title icon fab fa-whatsapp icon-xxs"></span> <a href="tel:tel:+22965306767">+229 65 30 67 67</a>
                     </li>
-                    <li><a href="mailto:info@dyscomnegoce.com">info@dyscomnegoce.com</a></li>
+                    <li><a href="mailto:info@dyscomnegoce.com"> <span class="icon fas fa-envelope icon-xxs"></span> info@dyscomnegoce.com</a></li>
                   </ul>
                 </div>
                 <!-- RD Navbar Panel-->
@@ -68,32 +70,63 @@
                   </div>
                 </div>
                 <div class="rd-navbar-aside-element">
-                  <div class="rd-navbar-fixed-element-2 select-inline">
-                    <select data-dropdown-class="select-inline-dropdown">
-                      <option value="ar">ar</option>
-                      <option value="en">en</option>
-                      <option value="es">es</option>
-                      <option value="fr" selected>fr</option> 
-                    </select>
+                  <div class="rd-navbar-fixed-element-2 select-inline" >
+                    <div id="globe-icon" style="cursor: pointer; background-color: white; padding: 5px; border-radius: 100%;">
+                      <i class="fas fa-globe globe-icon"  style="font-size: 26px; color: green;"></i>
+                    </div>
+                    <div id="languageModal" class="modal" style="background-color: #383d3fe8 !important;"> 
+                      <span class="close" style="opacity: 0;">&times;</span>
+                      <div class="modal-content" style="background-color: #383d3f !important;"> 
+                        <ul id="language-select" style="height: 230px; overflow: auto;" class="sub__menu"> 
+                          <li style="cursor: pointer;">&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/ar.jpeg" alt="ar"></li><hr> <br>
+                          <li  style="cursor: pointer;">&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/en.jpeg" alt="en"></li><hr> <br>
+                          <li style="cursor: pointer;">&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/fr.jpeg" alt="fr" ></li><hr> <br>
+                          <li  style="cursor: pointer;">&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/es.jpeg" alt="es"></li><hr>
+                        </ul>
+                      </div>
+                    </div> 
                   </div>
                 </div>
               </div>
             </div>
+            <script>
+              // Obtenir les éléments
+              const globeIcon = document.getElementById("globe-icon");
+              const modal = document.getElementById("languageModal");
+              const closeModal = document.querySelector(".close");
+          
+              // Afficher le modal quand on clique sur l'icône de globe
+              globeIcon.onclick = function() {
+                modal.style.display = "block";
+              };
+          
+              // Fermer le modal quand on clique sur le bouton de fermeture
+              closeModal.onclick = function() {
+                modal.style.display = "none";
+              };
+          
+              // Fermer le modal quand on clique en dehors du contenu du modal
+              window.onclick = function(event) {
+                if (event.target == modal) {
+                  modal.style.display = "none";
+                }
+              };
+            </script>
             <div class="rd-navbar-main-outer">
               <div class="rd-navbar-main">
                 <div class="rd-navbar-nav-wrap">
                   <ul class="rd-navbar-nav">
-                    <li class="rd-nav-item active"><a class="rd-nav-link" href="index.html">Accueil</a>
+                    <li class="rd-nav-item active"><a class="rd-nav-link" href="index.html" id="INDEXID1"></a>
                     </li>
-                    <li class="rd-nav-item"><a class="rd-nav-link" href="about.html">À propos</a>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="about.html" id="INDEXID2"></a>
                     </li>
-                    <li class="rd-nav-item"><a class="rd-nav-link" href="#services">Services </a>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="#services" id="INDEXID3"> </a>
                     </li>
-                    <li class="rd-nav-item"><a class="rd-nav-link" href="#Les_Produits">Nos Produits </a>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="#Les_Produits" id="INDEXID5"> </a>
                     </li>
-                    <li class="rd-nav-item"><a class="rd-nav-link" href="contact.html">Contact </a>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="contact.html" id="INDEXID7"> </a>
                     </li>
-                    <li class="rd-nav-item"><a class="rd-nav-link" href="what.html">Comment ça marche ?</a>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="what.html" id="INDEXID8"></a>
                     </li>
                   </ul>
                 </div>
@@ -110,12 +143,12 @@
               <div class="container">
                 <div class="row">
                   <div class="col-sm-8 col-md-7">
-                    <h2 class="swiper-title-1" data-caption-animate="fadeInLeft" data-caption-delay="100">Le négoce des <br> matières premières agricoles !
+                    <h2 class="swiper-title-1" data-caption-animate="fadeInLeft" data-caption-delay="100" id="INDEXID9">
                     </h2>
-                    <h5 class="swiper-title-2 text-width-medium" data-caption-animate="fadeInLeft" data-caption-delay="250"> Ensemble vers un négoce éthique et durable.</h5>
-                    <div class="button-wrap" data-caption-animate="fadeInLeft" data-caption-delay="400"><a class="button button-lg button-shadow-4 button-secondary-2 button-zakaria" href="about.html">À propos <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
-                    </svg></a></div>
+                    <h5 class="swiper-title-2 text-width-medium" data-caption-animate="fadeInLeft" data-caption-delay="250" id="INDEXID10"> </h5>
+                    <div class="button-wrap" data-caption-animate="fadeInLeft" data-caption-delay="400" id="INDEXID11">
+
+                  </div>
                   </div>
                 </div>
               </div>
@@ -147,36 +180,20 @@
               <!-- Quote Classic Big-->
               <article class="quote-classic-big inset-xl-right-30">
                 <div class="heading-3 quote-classic-big-text">
-                  <div class="q">L'ananas</div>
+                  <div class="q" id="INDEXID12"></div>
                 </div>
               </article>
               <!-- Bootstrap tabs-->
               <div class="tabs-custom tabs-horizontal tabs-line" id="tabs-1">
                 <!-- Nav tabs-->
                 <div class="nav-tabs-wrap">
-                  <ul class="nav nav-tabs">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-1-1" data-bs-toggle="tab">Origine et Qualité </a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2" data-bs-toggle="tab">Sélection  </a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-bs-toggle="tab">Richesse</a></li>
+                  <ul class="nav nav-tabs" id="INDEXID13">
+                    
                   </ul>
                 </div>
                 <!-- Tab panes-->
-                <div class="tab-content">
-                  <div class="tab-pane fade show active" id="tabs-1-1">
-                    <p>Les ananas exportés par Dyscom Negoce sont cultivés dans les terres fertiles d'Afrique de l'Ouest, 
-                      connues pour produire 
-                      des fruits de grande qualité, sucrés et juteux, parfaitement adaptés aux normes internationales.</p>
-                  </div>
-                  <div class="tab-pane fade" id="tabs-1-2">
-                    <p>Dyscom Negoce sélectionne soigneusement chaque ananas pour garantir leur fraîcheur et leur qualité. 
-                      Des techniques de conservation et d'emballage modernes 
-                      permettent de préserver les saveurs naturelles et les propriétés nutritionnelles pendant le transport.</p>
-                  </div>
-                  <div class="tab-pane fade" id="tabs-1-3">
-                    <p>L’ananas est riche en vitamines C, fibres et antioxydants, et est apprécié pour ses nombreux 
-                      bienfaits sur la santé. Dyscom Negoce s'assure que les fruits atteignent les clients en conservant
-                       leur valeur nutritionnelle optimale, prêts pour la consommation ou la transformation.</p>
-                  </div>
+                <div class="tab-content" id="INDEXID14XXX">
+ 
                 </div>
               </div>
               <a class="button button-lg button-shadow-2 button-primary button-zakaria icon fab fa-whatsapp icon-xxs" href="tel:+22965306767"></a>
@@ -244,36 +261,20 @@
               <!-- Quote Classic Big-->
               <article class="quote-classic-big inset-xl-right-30">
                 <div class="heading-3 quote-classic-big-text">
-                  <div class="q">Fleur d'hibiscus</div>
+                  <div class="q" id="INDEXID15"></div>
                 </div>
               </article>
               <!-- Bootstrap tabs-->
               <div class="tabs-custom tabs-horizontal tabs-line" id="tabs-1">
                 <!-- Nav tabs-->
                 <div class="nav-tabs-wrap">
-                  <ul class="nav nav-tabs">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-1-1b" data-bs-toggle="tab">Produit en Afrique</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2b" data-bs-toggle="tab">Utilisations  </a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3b" data-bs-toggle="tab">Bienfaits </a></li>
+                  <ul class="nav nav-tabs" id="INDEXID16">
+                   
                   </ul>
                 </div>
                 <!-- Tab panes-->
-                <div class="tab-content">
-                  <div class="tab-pane fade show active" id="tabs-1-1b">
-                    <p>Le bissap est cultivé dans diverses régions d’Afrique, notamment en Afrique de l’Ouest, où le 
-                      climat est idéal pour la production de cette fleur riche en couleur et en saveur. 
-                      Dyscom Negoce travaille directement avec des producteurs locaux pour fournir une qualité optimale.</p>
-                  </div>
-                  <div class="tab-pane fade" id="tabs-1-2b">
-                    <p>La fleur d’hibiscus est utilisée pour fabriquer des boissons rafraîchissantes, très populaires en Afrique et dans le monde entier, 
-                      pour sa saveur acidulée et ses effets hydratants. 
-                      Elle est également prisée dans des produits de santé et de beauté, grâce à ses propriétés antioxydantes.</p>
-                  </div>
-                  <div class="tab-pane fade" id="tabs-1-3b">
-                    <p>Le bissap est riche en vitamine C et en antioxydants, ce qui en fait une boisson naturelle 
-                      pour renforcer le système immunitaire et réduire l’hypertension. Dyscom Negoce veille à ce 
-                      que les fleurs soient traitées de manière à conserver ces bienfaits pour ses clients internationaux.</p>
-                  </div>
+                <div class="tab-content" id="INDEXID17">
+                 
                 </div>
               </div>
               <a class="button button-lg button-shadow-2 button-primary button-zakaria icon fab fa-whatsapp icon-xxs" href="tel:+22965306767"></a>
@@ -291,36 +292,20 @@
               <!-- Quote Classic Big-->
               <article class="quote-classic-big inset-xl-right-30">
                 <div class="heading-3 quote-classic-big-text">
-                  <div class="q">Noix de palmiste</div>
+                  <div class="q" id="INDEXID18"></div>
                 </div>
               </article>
               <!-- Bootstrap tabs-->
               <div class="tabs-custom tabs-horizontal tabs-line" id="tabs-1">
                 <!-- Nav tabs-->
                 <div class="nav-tabs-wrap">
-                  <ul class="nav nav-tabs">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-1-1n" data-bs-toggle="tab">Richesse </a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2n" data-bs-toggle="tab">Processus  </a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3n" data-bs-toggle="tab">Utilisations</a></li>
+                  <ul class="nav nav-tabs" id="INDEXID19">
+                    
                   </ul>
                 </div>
                 <!-- Tab panes-->
-                <div class="tab-content">
-                  <div class="tab-pane fade show active" id="tabs-1-1n">
-                    <p>La noix de palmiste est la graine contenue dans le fruit du palmier à huile. Elle est riche en 
-                      huile de palmiste, un produit prisé pour sa teneur en acides gras saturés et insaturés, 
-                      utilisée dans l'industrie alimentaire, cosmétique et pour des applications industrielles.</p>
-                  </div>
-                  <div class="tab-pane fade" id="tabs-1-2n">
-                    <p> Chez Dyscom Negoce, les noix de palmiste sont soigneusement sélectionnées et traitées pour 
-                      garantir une qualité élevée de l'huile extraite. Ce processus 
-                      permet d'obtenir un produit pur et de qualité, adapté aux besoins des industries internationales.</p>
-                  </div>
-                  <div class="tab-pane fade" id="tabs-1-3n">
-                    <p>Après extraction de l'huile, le résidu, appelé tourteau de palmiste, est utilisé comme 
-                      aliment pour le bétail en raison de sa richesse en protéines et en fibres. Dyscom Negoce valorise 
-                      ainsi toutes les parties de la noix de palmiste, contribuant à une production plus durable.</p>
-                  </div>
+                <div class="tab-content" id="INDEXID21X">
+                  
                 </div>
               </div>
               <a class="button button-lg button-shadow-2 button-primary button-zakaria icon fab fa-whatsapp icon-xxs" href="tel:+22965306767"></a>
@@ -388,37 +373,20 @@
               <!-- Quote Classic Big-->
               <article class="quote-classic-big inset-xl-right-30">
                 <div class="heading-3 quote-classic-big-text">
-                  <div class="q">Beurre de karité</div>
+                  <div class="q" id="INDEXID24"></div>
                 </div>
               </article>
               <!-- Bootstrap tabs-->
               <div class="tabs-custom tabs-horizontal tabs-line" id="tabs-1">
                 <!-- Nav tabs-->
                 <div class="nav-tabs-wrap">
-                  <ul class="nav nav-tabs">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-1-1bb" data-bs-toggle="tab">Source </a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2bb" data-bs-toggle="tab">Vertus </a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3bb" data-bs-toggle="tab">Utilisations </a></li>
+                  <ul class="nav nav-tabs" id="INDEXID25">
+                   
                   </ul>
                 </div>
                 <!-- Tab panes-->
-                <div class="tab-content">
-                  <div class="tab-pane fade show active" id="tabs-1-1bb">
-                    <p>Le beurre de karité provient des noix de l’arbre de karité, principalement cultivé en 
-                      Afrique de l'Ouest. Dyscom Negoce s’approvisionne en karité directement auprès de producteurs 
-                      locaux pour garantir un produit de haute qualité, tout en soutenant les 
-                      communautés locales et en préservant les pratiques durables.</p>
-                  </div>
-                  <div class="tab-pane fade" id="tabs-1-2bb">
-                    <p>Reconnu pour ses propriétés hydratantes, le beurre de karité est très apprécié dans 
-                      les soins de la peau et des cheveux. Il est riche en vitamines A, E, et F, et possède des qualités anti-inflammatoires et régénérantes, 
-                      en faisant un ingrédient clé dans de nombreux produits de beauté naturels.</p>
-                  </div>
-                  <div class="tab-pane fade" id="tabs-1-3bb">
-                    <p>Au-delà de la cosmétique, le beurre de karité est utilisé dans la fabrication de produits 
-                      alimentaires et pharmaceutiques. Chez Dyscom Negoce, le beurre de karité est traité pour répondre aux 
-                      normes internationales, le rendant prêt à l'emploi pour diverses industries dans le monde entier.</p>
-                  </div>
+                <div class="tab-content" id="INDEXID26">
+                  
                 </div>
               </div>
               <a class="button button-lg button-shadow-2 button-primary button-zakaria icon fab fa-whatsapp icon-xxs" href="tel:+22965306767"></a>
@@ -436,38 +404,20 @@
               <!-- Quote Classic Big-->
               <article class="quote-classic-big inset-xl-right-30">
                 <div class="heading-3 quote-classic-big-text">
-                  <div class="q">L'os de seiche</div>
+                  <div class="q" id="INDEXID21"></div>
                 </div>
               </article>
               <!-- Bootstrap tabs-->
               <div class="tabs-custom tabs-horizontal tabs-line" id="tabs-1">
                 <!-- Nav tabs-->
                 <div class="nav-tabs-wrap">
-                  <ul class="nav nav-tabs">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-1-1l" data-bs-toggle="tab">Minéraux Essentiels </a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2l" data-bs-toggle="tab">Utilisation </a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3l" data-bs-toggle="tab">Produit Naturel</a></li>
+                  <ul class="nav nav-tabs" id="INDEXID22">
+                   
                   </ul>
                 </div>
                 <!-- Tab panes-->
-                <div class="tab-content">
-                  <div class="tab-pane fade show active" id="tabs-1-1l">
-                    <p>L'os de seiche est une source naturelle de calcium et de minéraux, ce qui en fait un complément 
-                      idéal pour l'alimentation des animaux, notamment des oiseaux et des reptiles. Chez Dyscom Negoce, 
-                      les os de seiche sont soigneusement sélectionnés pour offrir un produit riche en nutriments.</p>
-                  </div>
-                  <div class="tab-pane fade" id="tabs-1-2l">
-                    <p>Principalement utilisé dans les élevages d'oiseaux, l’os de seiche permet d’aiguiser 
-                      le bec des oiseaux tout en leur fournissant du calcium pour renforcer leur ossature. 
-                      Il est également 
-                      utilisé pour les reptiles qui bénéficient des minéraux pour leur croissance et santé.</p>
-                  </div>
-                  <div class="tab-pane fade" id="tabs-1-3l">
-                    <p>L'os de seiche est un produit naturel provenant des coquilles de seiches. 
-                      En valorisant cet ingrédient, Dyscom Negoce contribue à une utilisation complète des 
-                      ressources marines, en soutenant une 
-                      approche durable et en proposant des produits qui répondent aux besoins de diverses industries.</p>
-                  </div>
+                <div class="tab-content" id="INDEXID22X">
+                  
                 </div>
               </div>
               <a class="button button-lg button-shadow-2 button-primary button-zakaria icon fab fa-whatsapp icon-xxs" href="tel:+22965306767"></a>
@@ -505,7 +455,7 @@
       <!-- Services-->
       <section class="section section-xxl bg-image-1">
         <div class="container">
-          <h2 class="text-transform-capitalize wow fadeScale">Notre Engagement</h2>
+          <h2 class="text-transform-capitalize wow fadeScale" id="INDEXID27"></h2>
           <div class="row row-xl row-30 row-md-40 row-lg-50 align-items-center">
             <div class="col-md-5 col-xl-4">
               <div class="row row-30 row-md-40 row-lg-50 bordered-2">
@@ -536,9 +486,8 @@
                           </svg>
                         </div>
                       </div>
-                      <div class="unit-body">
-                        <h4 class="box-icon-classic-title"><a href="#">Qualité </a></h4>
-                        <p class="box-icon-classic-text">Nous sélectionnons nos matières premières avec soin pour assurer des produits de qualité exceptionnelle.</p>
+                      <div class="unit-body" id="INDEXID28">
+                       
                       </div>
                     </div>
                   </article>
@@ -583,9 +532,8 @@
                           </svg>
                         </div>
                       </div>
-                      <div class="unit-body">
-                        <h4 class="box-icon-classic-title"><a href="#">Éthique </a></h4>
-                        <p class="box-icon-classic-text">Nos pratiques commerciales favorisent une approche responsable et durable, respectant l'environnement et les personnes.</p>
+                      <div class="unit-body" id="INDEXID29">
+                       
                       </div>
                     </div>
                   </article>
@@ -635,9 +583,8 @@
                           </svg>
                         </div>
                       </div>
-                      <div class="unit-body">
-                        <h4 class="box-icon-classic-title"><a href="#">Innovation </a></h4>
-                        <p class="box-icon-classic-text">En collaborant avec des partenaires internationaux, nous explorons de nouvelles façons d'utiliser les produits africains dans divers secteurs.</p>
+                      <div class="unit-body" id="INDEXID30">
+                        
                       </div>
                     </div>
                   </article>
@@ -686,9 +633,8 @@
                           </svg>
                         </div>
                       </div>
-                      <div class="unit-body">
-                        <h4 class="box-icon-classic-title"><a href="#">Transparence</a></h4>
-                        <p class="box-icon-classic-text">Nous privilégions une communication claire et honnête à chaque étape, assurant une relation de confiance avec nos partenaires et clients.</p>
+                      <div class="unit-body" id="INDEXID31">
+                       
                       </div>
                     </div>
                   </article>
@@ -700,14 +646,14 @@
       </section>
       <section class="section section-xxl bg-image-1" style="background-color: #383d3f41 !important;">
         <div>
-          <h6>Dyscom Negoce : l'Afrique au cœur de vos échanges, le monde à portée de main.</h6>
+          <h6 id="INDEXID30V"></h6>
           <img src="images/bat.gif" alt="">
         </div>
       </section>
       <!-- New Flavors-->
       <section class="section section-xxl bg-default" id="Les_Produits">
         <div class="container">
-          <h2 class="text-transform-capitalize wow fadeScale">Les Produits</h2>
+          <h2 class="text-transform-capitalize wow fadeScale" id="INDEXID31V"></h2>
           <div class="row row-lg row-30 row-lg-50">
             <div class="col-sm-6 col-md-4 col-lg-3">
               <!-- Product-->
@@ -715,9 +661,12 @@
                 <div class="product-body">
                   <div class="product-figure"><img src="images/4c.png" alt="" style="max-width: 42vh !important;"/>
                   </div>
-                  <h5 class="product-title"><a href="">4 Côtés </a></h5>
+                  <h5 class="product-title"><a href="" id="INDEXID32"> </a></h5>
                   <div class="product-price-wrap">
-                    <div class="group-xs group-middle"><span class="list-social-title">Share</span>
+                    <div class="group-xs group-middle"><span class="list-social-title">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+                      <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5"/>
+                    </svg></span>
                       <div>
                         <ul class="list-inline list-social list-inline-sm">
                           <!-- Facebook -->
@@ -786,9 +735,11 @@
                 <div class="product-body">
                   <div class="product-figure"><img src="images/Baies de miracle.png" alt="" style="max-width: 42vh !important;"/>
                   </div>
-                  <h5 class="product-title"><a href=" ">Baies de miracle</a></h5>
+                  <h5 class="product-title"><a href=" " id="INDEXID33"></a></h5>
                   <div class="product-price-wrap">
-                    <div class="group-xs group-middle"><span class="list-social-title">Share</span>
+                    <div class="group-xs group-middle"><span class="list-social-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+                      <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5"/>
+                    </svg></span>
                       <div>
                         <ul class="list-inline list-social list-inline-sm">
                           <!-- Facebook -->
@@ -830,7 +781,7 @@
                       </div>
                     </div> 
                   </div>
-                </div><span class="product-badge product-badge-new">New</span>
+                </div><span class="product-badge product-badge-new">N</span>
                 <div class="product-button-wrap">
                   <div class="product-button">
                     <a class="button button-secondary icon fab fa-whatsapp icon-xxs" href="#" 
@@ -855,9 +806,11 @@
                 <div class="product-body">
                   <div class="product-figure"><img src="images/Feuilles de djeka.png" alt="" style="max-width: 42vh !important;"/>
                   </div>
-                  <h5 class="product-title"><a href="">Feuilles de djeka </a></h5>
+                  <h5 class="product-title"><a href="" id="INDEXID34"> </a></h5>
                   <div class="product-price-wrap">
-                    <div class="group-xs group-middle"><span class="list-social-title">Share</span>
+                    <div class="group-xs group-middle"><span class="list-social-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+                      <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5"/>
+                    </svg></span>
                       <div>
                         <ul class="list-inline list-social list-inline-sm">
                           <!-- Facebook -->
@@ -924,9 +877,11 @@
                 <div class="product-body">
                   <div class="product-figure"><img src="images/Le nep nep.png"/>
                   </div>
-                  <h5 class="product-title"><a href=" ">Le nep nep</a></h5>
+                  <h5 class="product-title"><a href=" " id="INDEXID34V"></a></h5>
                   <div class="product-price-wrap">
-                    <div class="group-xs group-middle"><span class="list-social-title">Share</span>
+                    <div class="group-xs group-middle"><span class="list-social-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+                      <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5"/>
+                    </svg></span>
                       <div>
                         <ul class="list-inline list-social list-inline-sm">
                           <!-- Facebook -->
@@ -968,7 +923,7 @@
                       </div>
                     </div> 
                   </div>
-                </div><span class="product-badge product-badge-new">New</span>
+                </div><span class="product-badge product-badge-new">N</span>
                 <div class="product-button-wrap">
                   <div class="product-button">
                     <a class="button button-secondary icon fab fa-whatsapp icon-xxs" href="#" 
@@ -993,9 +948,11 @@
                 <div class="product-body">
                   <div class="product-figure"><img src="images/racines de vetiver.png" style="max-height: 32vh !important;"/>
                   </div>
-                  <h5 class="product-title"><a href="">racines de vetiver</a></h5>
+                  <h5 class="product-title"><a href="" id="INDEXID35"></a></h5>
                   <div class="product-price-wrap">
-                    <div class="group-xs group-middle"><span class="list-social-title">Share</span>
+                    <div class="group-xs group-middle"><span class="list-social-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+                      <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5"/>
+                    </svg></span>
                       <div>
                         <ul class="list-inline list-social list-inline-sm">
                           <!-- Facebook -->
@@ -1037,7 +994,7 @@
                       </div>
                     </div> 
                   </div>
-                </div><span class="product-badge product-badge-new">New</span>
+                </div><span class="product-badge product-badge-new">N</span>
                 <div class="product-button-wrap">
                   <div class="product-button">
                     <a class="button button-secondary icon fab fa-whatsapp icon-xxs" href="#" 
@@ -1062,9 +1019,11 @@
                 <div class="product-body">
                   <div class="product-figure"> <img src="images/Coque de palmiste.avif" style="max-height: 32vh !important;"/>
                   </div>
-                  <h5 class="product-title"><a href="">Coque de palmiste</a></h5>
+                  <h5 class="product-title"><a href="" id="INDEXID36"></a></h5>
                   <div class="product-price-wrap">
-                    <div class="group-xs group-middle"><span class="list-social-title">Share</span>
+                    <div class="group-xs group-middle"><span class="list-social-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+                      <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5"/>
+                    </svg></span>
                       <div>
                         <ul class="list-inline list-social list-inline-sm">
                           <!-- Facebook -->
@@ -1131,9 +1090,11 @@
                 <div class="product-body">
                   <div class="product-figure"><img src="images/Huile de Palme.webp"/>
                   </div>
-                  <h5 class="product-title"><a href="">Huile de Palme</a></h5>
+                  <h5 class="product-title"><a href="" id="INDEXID37"></a></h5>
                   <div class="product-price-wrap">
-                    <div class="group-xs group-middle"><span class="list-social-title">Share</span>
+                    <div class="group-xs group-middle"><span class="list-social-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+                      <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5"/>
+                    </svg></span>
                       <div>
                         <ul class="list-inline list-social list-inline-sm">
                           <!-- Facebook -->
@@ -1200,9 +1161,11 @@
                 <div class="product-body">
                   <div class="product-figure"><img src="images/Les Bananes.jpg"/>
                   </div>
-                  <h5 class="product-title"><a href="">Les Bananes</a></h5>
+                  <h5 class="product-title"><a href="" id="INDEXID38"></a></h5>
                   <div class="product-price-wrap">
-                    <div class="group-xs group-middle"><span class="list-social-title">Share</span>
+                    <div class="group-xs group-middle"><span class="list-social-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+                      <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5"/>
+                    </svg></span>
                       <div>
                         <ul class="list-inline list-social list-inline-sm">
                           <!-- Facebook -->
@@ -1268,7 +1231,7 @@
       </section>
       <section class="section section-xxl bg-image-1" style="background-color: #383d3f41 !important;">
         <div>
-          <h6>Valorisons les trésors de l'Afrique, ensemble vers un négoce éthique et durable.</h6>
+          <h6 id="INDEXID39"></h6>
           <img src="images/Farm.gif" alt="">
         </div>
       </section>
@@ -1282,7 +1245,7 @@
                   <h2 class="counter-modern-number"><span class="counter">5</span>
                   </h2>
                   <div class="counter-modern-decor"></div>
-                  <h5 class="counter-modern-title">Continents</h5>
+                  <h5 class="counter-modern-title" id="INDEXID40"></h5>
                 </div>
               </div>
               <div class="col-6 col-sm-3">
@@ -1290,7 +1253,7 @@
                   <h2 class="counter-modern-number"><span class="counter">82</span>
                   </h2>
                   <div class="counter-modern-decor"></div>
-                  <h5 class="counter-modern-title">Pays</h5>
+                  <h5 class="counter-modern-title" id="INDEXID41"></h5>
                 </div>
               </div>
               <div class="col-6 col-sm-3">
@@ -1298,7 +1261,7 @@
                   <h2 class="counter-modern-number"><span class="counter">1267</span>
                   </h2>
                   <div class="counter-modern-decor"></div>
-                  <h5 class="counter-modern-title">Clients Satisfaits </h5>
+                  <h5 class="counter-modern-title" id="INDEXID42"> </h5>
                 </div>
               </div>
               <div class="col-6 col-sm-3">
@@ -1306,7 +1269,7 @@
                   <h2 class="counter-modern-number"><span class="counter">74</span>
                   </h2>
                   <div class="counter-modern-decor"></div>
-                  <h5 class="counter-modern-title">Parténaires</h5>
+                  <h5 class="counter-modern-title" id="INDEXID43"></h5>
                 </div>
               </div>
             </div>
@@ -1325,8 +1288,8 @@
                     <article class="product-creative">
                       <div class="product-figure"><img src="images/ananas.gif" alt="" style="height: 70vh !important;"/>
                       </div>
-                      <h4 class="product-creative-title"><a href="">Aurore Grape</a></h4>
-                      <div class="product-creative-price-wrap">
+                      <h4 class="product-creative-title"><a href="" id="INDEXID44"></a></h4>
+                      <div class="product-creative-price-wrap" style="display: none;">
                         <div class="product-creative-price product-creative-price-old">$20.00</div>
                         <div class="product-creative-price">$15.00</div>
                       </div>
@@ -1342,23 +1305,26 @@
                 <!-- Bootstrap card-->
                 <article class="card card-custom card-corporate wow fadeInRight" data-wow-delay=".1s">
                   <div class="card-header" role="tab">
-                    <div class="card-title"><a id="accordion1-card-head-aafskijv" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1-card-body-esuuimue" aria-controls="accordion1-card-body-esuuimue" aria-expanded="true" role="button">Quels types de matières premières proposez-vous à l’exportation ?
+                    <div class="card-title"><a id="accordion1-card-head-aafskijv" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1-card-body-esuuimue" aria-controls="accordion1-card-body-esuuimue" aria-expanded="true" role="button">
+                     <p id="INDEXID45"> </p>
                         <div class="card-arrow">
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-question-fill" viewBox="0 0 16 16">
                             <path d="M5.933.87a2.89 2.89 0 0 1 4.134 0l.622.638.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01zM7.002 11a1 1 0 1 0 2 0 1 1 0 0 0-2 0m1.602-2.027c.04-.534.198-.815.846-1.26.674-.475 1.05-1.09 1.05-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.7 1.7 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-.915.61 0 1.03.446 1.03 1.084 0 .563-.208.885-.822 1.325-.619.433-.926.914-.926 1.64v.111c0 .428.208.745.585.745.336 0 .504-.24.554-.627"/>
                           </svg>
-                        </div></a></div>
+                        </div></a>
+                      </div>
                   </div>
                   <div class="collapse show" id="accordion1-card-body-esuuimue" aria-labelledby="accordion1-card-head-aafskijv" data-bs-parent="#accordion1" role="tabpanel">
                     <div class="card-body">
-                      <p>Nous proposons une variété de produits africains bruts, notamment l’huile rouge de palme, les coques de noix de palmiste, le nep nep, la banane, l'ananas, le gingembre, le bissap (fleur d’hibiscus), et bien d'autres matières premières authentiques.</p>
+                      <p id="INDEXID46"></p>
                     </div>
                   </div>
                 </article>
                 <!-- Bootstrap card-->
                 <article class="card card-custom card-corporate wow fadeInRight" data-wow-delay=".2s">
                   <div class="card-header" role="tab">
-                    <div class="card-title"><a class="collapsed" id="accordion1-card-head-ggahiken" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1-card-body-dlnhxjsq" aria-controls="accordion1-card-body-dlnhxjsq" aria-expanded="false" role="button">Quelles sont les quantités minimales et maximales de commande ?
+                    <div class="card-title"><a class="collapsed" id="accordion1-card-head-ggahiken" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1-card-body-dlnhxjsq" aria-controls="accordion1-card-body-dlnhxjsq" aria-expanded="false" role="button">
+                      <p id="INDEXID47"></p>
                         <div class="card-arrow">
                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-question-fill" viewBox="0 0 16 16">
                             <path d="M5.933.87a2.89 2.89 0 0 1 4.134 0l.622.638.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01zM7.002 11a1 1 0 1 0 2 0 1 1 0 0 0-2 0m1.602-2.027c.04-.534.198-.815.846-1.26.674-.475 1.05-1.09 1.05-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.7 1.7 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-.915.61 0 1.03.446 1.03 1.084 0 .563-.208.885-.822 1.325-.619.433-.926.914-.926 1.64v.111c0 .428.208.745.585.745.336 0 .504-.24.554-.627"/>
@@ -1367,14 +1333,15 @@
                   </div>
                   <div class="collapse" id="accordion1-card-body-dlnhxjsq" aria-labelledby="accordion1-card-head-ggahiken" data-bs-parent="#accordion1" role="tabpanel">
                     <div class="card-body">
-                      <p>Nous nous adaptons aux besoins de chaque client, qu'il s'agisse de petites quantités pour des tests ou de commandes en vrac. Nos équipes peuvent vous informer des seuils spécifiques selon les produits demandés.</p>
+                      <p id="INDEXID48"></p>
                     </div>
                   </div>
                 </article>
                 <!-- Bootstrap card-->
                 <article class="card card-custom card-corporate wow fadeInRight" data-wow-delay=".3s">
                   <div class="card-header" role="tab">
-                    <div class="card-title"><a class="collapsed" id="accordion1-card-head-opmipvwr" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1-card-body-dgjqjdxo" aria-controls="accordion1-card-body-dgjqjdxo" aria-expanded="false" role="button">Comment assurez-vous la qualité des produits exportés ?
+                    <div class="card-title"><a class="collapsed" id="accordion1-card-head-opmipvwr" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1-card-body-dgjqjdxo" aria-controls="accordion1-card-body-dgjqjdxo" aria-expanded="false" role="button">
+                      <p id="INDEXID49"></p>
                         <div class="card-arrow">
                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-question-fill" viewBox="0 0 16 16">
                             <path d="M5.933.87a2.89 2.89 0 0 1 4.134 0l.622.638.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01zM7.002 11a1 1 0 1 0 2 0 1 1 0 0 0-2 0m1.602-2.027c.04-.534.198-.815.846-1.26.674-.475 1.05-1.09 1.05-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.7 1.7 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-.915.61 0 1.03.446 1.03 1.084 0 .563-.208.885-.822 1.325-.619.433-.926.914-.926 1.64v.111c0 .428.208.745.585.745.336 0 .504-.24.554-.627"/>
@@ -1383,13 +1350,14 @@
                   </div>
                   <div class="collapse" id="accordion1-card-body-dgjqjdxo" aria-labelledby="accordion1-card-head-opmipvwr" data-bs-parent="#accordion1" role="tabpanel">
                     <div class="card-body">
-                      <p>Tous nos produits passent par un contrôle de qualité rigoureux pour garantir qu'ils respectent les normes internationales. Nous travaillons avec des fournisseurs de confiance et utilisons des laboratoires pour tester nos matières premières, afin d’assurer leur authenticité et leur qualité.</p>
+                      <p id="INDEXID50"></p>
                     </div>
                   </div>
                 </article>
                 <article class="card card-custom card-corporate wow fadeInRight" data-wow-delay=".4s">
                   <div class="card-header" role="tab">
-                    <div class="card-title"><a class="collapsed" id="accordion1-card-head-opmipvwr" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1-card-body-dgjqjdxo" aria-controls="accordion1-card-body-dgjqjdxo" aria-expanded="false" role="button">Quels sont les délais et les modalités de livraison ?
+                    <div class="card-title"><a class="collapsed" id="accordion1-card-head-opmipvwr" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1-card-body-dgjqjdxo" aria-controls="accordion1-card-body-dgjqjdxo" aria-expanded="false" role="button">
+                      <p id="INDEXID51"></p>
                         <div class="card-arrow">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-question-fill" viewBox="0 0 16 16">
                             <path d="M5.933.87a2.89 2.89 0 0 1 4.134 0l.622.638.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01zM7.002 11a1 1 0 1 0 2 0 1 1 0 0 0-2 0m1.602-2.027c.04-.534.198-.815.846-1.26.674-.475 1.05-1.09 1.05-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.7 1.7 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-.915.61 0 1.03.446 1.03 1.084 0 .563-.208.885-.822 1.325-.619.433-.926.914-.926 1.64v.111c0 .428.208.745.585.745.336 0 .504-.24.554-.627"/>
@@ -1398,7 +1366,7 @@
                   </div>
                   <div class="collapse" id="accordion1-card-body-dgjqjdxo" aria-labelledby="accordion1-card-head-opmipvwr" data-bs-parent="#accordion1" role="tabpanel">
                     <div class="card-body">
-                      <p>Les délais de livraison dépendent de la destination et des produits commandés. Nous offrons des options de transport flexibles et collaborons avec des transporteurs fiables pour assurer une expédition sécurisée dans les meilleurs délais.</p>
+                      <p id="yearTab-tab"></p>
                     </div>
                   </div>
                 </article>
@@ -1415,9 +1383,8 @@
                         </div>
 
                       </div>
-                      <div class="unit-body">
-                        <h5 class="box-icon-creative-title"><a href="#">Livraison gratuite</a></h5>
-                        <p class="box-icon-creative-text">Notre livraison rapide et gratuite</p> <p>
+                      <div class="unit-body" id="monthTab-tab">
+                        
                       </div>
                     </div>
                   </article>
@@ -1430,9 +1397,8 @@
                         <span class="icon fas fa-comment"></span> <!-- Icône de chat avec une seule bulle -->
                       </div>
                       </div>
-                      <div class="unit-body">
-                        <h5 class="box-icon-creative-title"><a href="#">Service à la clientèle</a></h5>
-                        <p class="box-icon-creative-text">Toujours prêt à vous aider</p>
+                      <div class="unit-body" id="weekTab-tab">
+                        
                       </div>
                     </div>
                   </article>
@@ -1446,9 +1412,8 @@
                       </div>
 
                       </div>
-                      <div class="unit-body">
-                        <h5 class="box-icon-creative-title"><a href="#">Marchés mondiaux</a></h5>
-                        <p class="box-icon-creative-text">Répondre aux exigences des marchés mondiaux</p>
+                      <div class="unit-body" id="INDEXID55">
+                        
                       </div>
                     </div>
                   </article>
@@ -1644,7 +1609,7 @@
         </div>
       </section>
       <!-- Subscribe to Our Newsletter-->
-      <section class="parallax-container" data-parallax-img="https://livedemo00.template-help.com/wt_prod-10492/theme/images/parallax-4.jpg">
+      <section class="parallax-container" style="display: none;"  data-parallax-img="https://livedemo00.template-help.com/wt_prod-10492/theme/images/parallax-4.jpg">
         <div class="parallax-content section-xxl context-dark text-md-start">
           <div class="container">
             <div class="row row-30 justify-content-center align-items-center align-items-md-end">
@@ -1721,28 +1686,25 @@
       <!-- Section Clients-->
       <section class="section section-xxl bg-image-1" id="services">
         <div class="container">
-          <h2 class="text-transform-capitalize wow fadeScale">Nos services</h2>
+          <h2 class="text-transform-capitalize wow fadeScale" id="INDEXID56"></h2>
           <!-- Owl Carousel-->
           <div class="owl-carousel" data-items="1" data-sm-items="2" data-lg-items="3" data-margin="30" data-dots="true" data-mouse-drag="false">
             <!-- Post Classic-->
             <article class="post post-classic box-md wow slideInDown"><a class="post-classic-figure" href=""><img src="images/aboutx.jpg" alt="" width="370" height="239"/></a>
-              <div class="post-classic-content"> 
-                <h5 class="post-classic-title"><a href="">Exportation de Matières Premières</a></h5>
-                <p class="post-classic-text">Nous fournissons une large gamme de matières premières africaines de qualité, adaptées aux besoins de divers secteurs industriels et commerciaux à travers le monde.</p>
+              <div class="post-classic-content" id="INDEXID57"> 
+                 
               </div>
             </article>
             <!-- Post Classic-->
             <article class="post post-classic box-md wow slideInUp"><a class="post-classic-figure" href=""><img src="images/servicesx.jpg" alt="" width="370" height="239"/></a>
-              <div class="post-classic-content"> 
-                <h5 class="post-classic-title"><a href="">Gestion Logistique et Transport</a></h5>
-                <p class="post-classic-text">Grâce à notre expertise en logistique internationale, nous coordonnons chaque étape de l’expédition, depuis l’Afrique jusqu'à la destination finale, en assurant une livraison efficace et sécurisée.</p>
+              <div class="post-classic-content" id="INDEXID58"> 
+                
               </div>
             </article>
             <!-- Post Classic-->
             <article class="post post-classic box-md wow slideInDown"><a class="post-classic-figure" href=""><img src="https://livedemo00.template-help.com/wt_prod-10492/theme/images/post-3-370x239.jpg" alt="" width="370" height="239"/></a>
-              <div class="post-classic-content"> 
-                <h5 class="post-classic-title"><a href="">Assurance Qualité et Conformité.</a></h5>
-                <p class="post-classic-text">Nos matières premières sont soumises à des contrôles de qualité rigoureux pour garantir leur conformité aux normes internationales, assurant ainsi aux clients des produits fiables et authentiques.</p>
+              <div class="post-classic-content" id="loanStartDate"> 
+                
               </div>
             </article>
           </div>
@@ -1761,7 +1723,7 @@
             <div class="row row-40 row-md-50 justify-content-xl-between">
               <div class="col-md-10 col-lg-3 col-xl-4 wow fadeInRight">
                 <div class="inset-xl-right-70 block-1">
-                  <h5 class="footer-modern-title">Fleur d'hibiscus</h5>
+                  <h5 class="footer-modern-title" id="loanEndDate"></h5>
                   <div class="row row-10 gutters-10" data-lightgallery="group">
                     <img src="images/Fenugrec.png" alt="" style="height: 30vh; width: 80vh;">
                   </div>
@@ -1788,19 +1750,13 @@
                 </div>
               </div>
               <div class="col-sm-6 col-md-7 col-lg-5 wow fadeInRight" data-wow-delay=".1s">
-                <h5 class="footer-modern-title">Liens rapides</h5>
-                <ul class="footer-modern-list footer-modern-list-2 d-sm-inline-block d-md-block">
-                  <li><a href="index.html">Accueil</a></li>
-                  <li><a href="about.html">À propos </a></li>
-                  <li><a href="#ervices">Services </a></li>
-                  <li><a href="#Les_Produits">Nos Produits </a></li>
-                  <li><a href="#faq">FAQ</a></li>
-                  <li><a href="contact.html">Contact </a></li>
-                  <li><a href="what.html">Comment ça marche ?</a></li> 
+                <h5 class="footer-modern-title" id="INDEXID59"></h5>
+                <ul class="footer-modern-list footer-modern-list-2 d-sm-inline-block d-md-block" id="INDEXID60">
+                  
                 </ul>
               </div>
               <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 wow fadeInRight" data-wow-delay=".2s">
-                <h5 class="footer-modern-title">Prendre contact</h5>
+                <h5 class="footer-modern-title" id="INDEXID61"></h5>
                 <ul class="contacts-creative">
                   <li>
                     <div class="unit unit-spacing-sm flex-column flex-md-row">
@@ -1870,6 +1826,7 @@
     </script>
     <div class="snackbars" id="form-output-global"></div>
     <script src="js/core.min.js"></script>
-    <script src="js/script.js"></script> 
+    <script src="js/script.js"></script>
+    <script src="translate/translate.js"></script> 
 </body>
 </html>
